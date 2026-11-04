@@ -1,0 +1,1458 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-04T06:18:00Z",
+  "note": "Đủ 67 mã bệnh viện + HUB-*. Mỗi feature tách 3 mức độc lập: readiness.spec (đặc tả), readiness.impl (triển khai), readiness.acceptance (nghiệm thu). Không suy ra mức này từ mức kia.",
+  "readiness_levels": {
+    "spec": [
+      "NONE",
+      "CATALOG",
+      "DRAFT",
+      "COMPLETE",
+      "REVIEWED"
+    ],
+    "impl": [
+      "NONE",
+      "SCAFFOLD",
+      "PARTIAL",
+      "COMPLETE"
+    ],
+    "acceptance": [
+      "NONE",
+      "PLANNED",
+      "TESTED",
+      "ACCEPTED"
+    ]
+  },
+  "role_glossary": {
+    "QTV": "Quản trị viên hệ thống",
+    "TD": "Tiếp đón / Lễ tân",
+    "BS": "Bác sĩ",
+    "DD": "Điều dưỡng",
+    "DS": "Dược sĩ",
+    "KT": "Kế toán / Viện phí",
+    "LD": "Lãnh đạo / Quản lý",
+    "NB": "Người bệnh"
+  },
+  "groups": [
+    {
+      "id": "A01",
+      "name": "Quản lý người dùng",
+      "domain": "admin"
+    },
+    {
+      "id": "A02",
+      "name": "Phân quyền",
+      "domain": "admin"
+    },
+    {
+      "id": "A03",
+      "name": "Danh mục",
+      "domain": "admin"
+    },
+    {
+      "id": "A04",
+      "name": "Cấu hình",
+      "domain": "admin"
+    },
+    {
+      "id": "A05",
+      "name": "Tích hợp",
+      "domain": "admin"
+    },
+    {
+      "id": "A06",
+      "name": "Giám sát",
+      "domain": "admin"
+    },
+    {
+      "id": "U01",
+      "name": "Người bệnh",
+      "domain": "clinical"
+    },
+    {
+      "id": "U02",
+      "name": "Khám chữa bệnh",
+      "domain": "clinical"
+    },
+    {
+      "id": "U03",
+      "name": "Bệnh án",
+      "domain": "clinical"
+    },
+    {
+      "id": "U04",
+      "name": "Nguồn lực",
+      "domain": "clinical"
+    },
+    {
+      "id": "U05",
+      "name": "AI",
+      "domain": "clinical"
+    },
+    {
+      "id": "U06",
+      "name": "IoT",
+      "domain": "clinical"
+    },
+    {
+      "id": "U07",
+      "name": "Phân tích/Báo cáo",
+      "domain": "clinical"
+    },
+    {
+      "id": "U08",
+      "name": "Thông báo",
+      "domain": "clinical"
+    },
+    {
+      "id": "U09",
+      "name": "Viện phí/BHYT",
+      "domain": "clinical"
+    },
+    {
+      "id": "U10",
+      "name": "Dược/Vật tư",
+      "domain": "clinical"
+    },
+    {
+      "id": "U11",
+      "name": "Người bệnh trực tuyến",
+      "domain": "clinical"
+    }
+  ],
+  "features": [
+    {
+      "id": "A01.1",
+      "group": "A01",
+      "name": "Tạo/sửa/khóa/mở khóa tài khoản",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A01.1-tai-khoan.md"
+    },
+    {
+      "id": "A01.2",
+      "group": "A01",
+      "name": "Hồ sơ nhân viên",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A01.2-ho-so-nhan-vien.md"
+    },
+    {
+      "id": "A01.3",
+      "group": "A01",
+      "name": "Đặt lại mật khẩu và 2FA",
+      "roles": [
+        "QTV",
+        "ALL"
+      ],
+      "note": "Gộp: tách hành vi con đặt lại MK + bật/tắt/xác minh 2FA",
+      "source_refs": [
+        "A01"
+      ],
+      "spec_doc": "content/02-yeu-cau/dac-ta/A01.3-dat-lai-mat-khau-2fa.md",
+      "readiness": {
+        "spec": "COMPLETE",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      }
+    },
+    {
+      "id": "A01.4",
+      "group": "A01",
+      "name": "Nhập tài khoản từ Excel",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A01.4-nhap-tai-khoan-tu-excel.md"
+    },
+    {
+      "id": "A02.1",
+      "group": "A02",
+      "name": "Vai trò mặc định",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A02.1-vai-tro-mac-dinh.md"
+    },
+    {
+      "id": "A02.2",
+      "group": "A02",
+      "name": "Quyền theo chức năng/hành động",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A02.2-quyen-theo-chuc-nang-hanh-dong.md"
+    },
+    {
+      "id": "A02.3",
+      "group": "A02",
+      "name": "Phạm vi dữ liệu theo khoa",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A02.3-pham-vi-du-lieu-theo-khoa.md"
+    },
+    {
+      "id": "A02.4",
+      "group": "A02",
+      "name": "Phân quyền tạm thời",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A02.4-phan-quyen-tam-thoi.md"
+    },
+    {
+      "id": "A03.1",
+      "group": "A03",
+      "name": "Khoa/phòng/buồng/giường",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A03.1-khoa-phong-buong-giuong.md"
+    },
+    {
+      "id": "A03.2",
+      "group": "A03",
+      "name": "Chuyên khoa/dịch vụ/giá",
+      "roles": [
+        "QTV",
+        "KT"
+      ],
+      "source_refs": [
+        "A03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A03.2-chuyen-khoa-dich-vu-gia.md"
+    },
+    {
+      "id": "A03.3",
+      "group": "A03",
+      "name": "Thuốc/vật tư",
+      "roles": [
+        "QTV",
+        "DS"
+      ],
+      "source_refs": [
+        "A03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A03.3-thuoc-vat-tu.md"
+    },
+    {
+      "id": "A03.4",
+      "group": "A03",
+      "name": "ICD-10 và danh mục dùng chung",
+      "roles": [
+        "QTV",
+        "BS"
+      ],
+      "source_refs": [
+        "A03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A03.4-icd10-va-danh-muc-dung-chung.md"
+    },
+    {
+      "id": "A04.1",
+      "group": "A04",
+      "name": "Tham số vận hành",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A04.1-tham-so-van-hanh.md"
+    },
+    {
+      "id": "A04.2",
+      "group": "A04",
+      "name": "Ngưỡng cảnh báo và luật phân luồng",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A04.2-nguong-canh-bao-va-luat-phan-luong.md"
+    },
+    {
+      "id": "A04.3",
+      "group": "A04",
+      "name": "Cấu hình quy trình",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A04.3-cau-hinh-quy-trinh.md"
+    },
+    {
+      "id": "A04.4",
+      "group": "A04",
+      "name": "Mẫu in",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A04.4-mau-in.md"
+    },
+    {
+      "id": "A05.1",
+      "group": "A05",
+      "name": "Thiết bị IoT",
+      "roles": [
+        "QTV"
+      ],
+      "integration": true,
+      "source_refs": [
+        "A05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A05.1-tich-hop-thiet-bi-iot.md"
+    },
+    {
+      "id": "A05.2",
+      "group": "A05",
+      "name": "Cổng BHYT",
+      "roles": [
+        "QTV",
+        "KT"
+      ],
+      "integration": true,
+      "source_refs": [
+        "A05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A05.2-cong-bhyt.md"
+    },
+    {
+      "id": "A05.3",
+      "group": "A05",
+      "name": "LIS/RIS",
+      "roles": [
+        "QTV"
+      ],
+      "integration": true,
+      "source_refs": [
+        "A05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A05.3-lis-ris.md"
+    },
+    {
+      "id": "A05.4",
+      "group": "A05",
+      "name": "Dịch vụ AI",
+      "roles": [
+        "QTV"
+      ],
+      "integration": true,
+      "note": "Qua 9router",
+      "source_refs": [
+        "A05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A05.4-dich-vu-ai-9router.md"
+    },
+    {
+      "id": "A05.5",
+      "group": "A05",
+      "name": "Nhật ký đồng bộ và lỗi tích hợp",
+      "roles": [
+        "QTV"
+      ],
+      "integration": true,
+      "source_refs": [
+        "A05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A05.5-nhat-ky-dong-bo-loi-tich-hop.md"
+    },
+    {
+      "id": "A06.1",
+      "group": "A06",
+      "name": "Tình trạng hệ thống",
+      "roles": [
+        "QTV",
+        "LD"
+      ],
+      "source_refs": [
+        "A06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A06.1-tinh-trang-he-thong.md"
+    },
+    {
+      "id": "A06.2",
+      "group": "A06",
+      "name": "Nhật ký truy cập/thao tác",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A06.2-nhat-ky-truy-cap-thao-tac-audit.md"
+    },
+    {
+      "id": "A06.3",
+      "group": "A06",
+      "name": "Báo cáo quản trị",
+      "roles": [
+        "QTV",
+        "LD"
+      ],
+      "source_refs": [
+        "A06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A06.3-bao-cao-quan-tri.md"
+    },
+    {
+      "id": "A06.4",
+      "group": "A06",
+      "name": "Theo dõi sao lưu/phục hồi",
+      "roles": [
+        "QTV"
+      ],
+      "source_refs": [
+        "A06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/A06.4-theo-doi-sao-luu-phuc-hoi.md"
+    },
+    {
+      "id": "U01.1",
+      "group": "U01",
+      "name": "Tiếp nhận mới",
+      "roles": [
+        "TD"
+      ],
+      "source_refs": [
+        "U01",
+        "UI-REF-01"
+      ],
+      "spec_doc": "content/02-yeu-cau/dac-ta/U01.1-tiep-nhan-moi.md",
+      "readiness": {
+        "spec": "COMPLETE",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      }
+    },
+    {
+      "id": "U01.2",
+      "group": "U01",
+      "name": "Tra cứu người bệnh",
+      "roles": [
+        "TD",
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U01",
+        "UI-REF-01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U01.2-tra-cuu-nguoi-benh.md"
+    },
+    {
+      "id": "U01.3",
+      "group": "U01",
+      "name": "Cập nhật hành chính",
+      "roles": [
+        "TD"
+      ],
+      "source_refs": [
+        "U01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U01.3-cap-nhat-hanh-chinh.md"
+    },
+    {
+      "id": "U01.4",
+      "group": "U01",
+      "name": "Kiểm tra thẻ BHYT",
+      "roles": [
+        "TD",
+        "KT"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U01.4-kiem-tra-the-bhyt.md"
+    },
+    {
+      "id": "U02.1",
+      "group": "U02",
+      "name": "Đăng ký/cấp số khám",
+      "roles": [
+        "TD"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.1-dang-ky-cap-so-kham.md"
+    },
+    {
+      "id": "U02.2",
+      "group": "U02",
+      "name": "Đặt lịch trực tuyến",
+      "roles": [
+        "NB",
+        "TD"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-01"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.2-dat-lich-truc-tuyen.md"
+    },
+    {
+      "id": "U02.3",
+      "group": "U02",
+      "name": "Hàng chờ khám",
+      "roles": [
+        "TD",
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.3-hang-cho-kham.md"
+    },
+    {
+      "id": "U02.4",
+      "group": "U02",
+      "name": "Khám/chẩn đoán",
+      "roles": [
+        "BS"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.4-kham-chan-doan.md"
+    },
+    {
+      "id": "U02.5",
+      "group": "U02",
+      "name": "Chỉ định cận lâm sàng",
+      "roles": [
+        "BS"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-02"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.5-chi-dinh-can-lam-sang.md"
+    },
+    {
+      "id": "U02.6",
+      "group": "U02",
+      "name": "Kê đơn thuốc",
+      "roles": [
+        "BS"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-02"
+      ],
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.6-ke-don-thuoc.md",
+      "readiness": {
+        "spec": "COMPLETE",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      }
+    },
+    {
+      "id": "U02.7",
+      "group": "U02",
+      "name": "Nhập/chuyển/xuất viện",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.7-nhap-chuyen-xuat-vien.md"
+    },
+    {
+      "id": "U02.8",
+      "group": "U02",
+      "name": "Điều trị và chăm sóc nội trú",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U02",
+        "UI-REF-03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U02.8-dieu-tri-cham-soc-noi-tru.md"
+    },
+    {
+      "id": "U03.1",
+      "group": "U03",
+      "name": "Bệnh án theo lượt/đợt",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U03.1-benh-an-theo-luot-dot.md"
+    },
+    {
+      "id": "U03.2",
+      "group": "U03",
+      "name": "Lịch sử điều trị",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U03.2-lich-su-dieu-tri.md"
+    },
+    {
+      "id": "U03.3",
+      "group": "U03",
+      "name": "Kết quả cận lâm sàng",
+      "roles": [
+        "BS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U03.3-ket-qua-can-lam-sang.md"
+    },
+    {
+      "id": "U03.4",
+      "group": "U03",
+      "name": "Ký số bệnh án",
+      "roles": [
+        "BS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U03.4-ky-so-benh-an.md"
+    },
+    {
+      "id": "U03.5",
+      "group": "U03",
+      "name": "In/xuất bệnh án",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U03.5-in-xuat-benh-an.md"
+    },
+    {
+      "id": "U04.1",
+      "group": "U04",
+      "name": "Sơ đồ giường",
+      "roles": [
+        "DD",
+        "BS",
+        "LD"
+      ],
+      "source_refs": [
+        "U04",
+        "UI-REF-03"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U04.1-so-do-giuong.md"
+    },
+    {
+      "id": "U04.2",
+      "group": "U04",
+      "name": "Phòng bệnh/phòng khám",
+      "roles": [
+        "QTV",
+        "DD"
+      ],
+      "source_refs": [
+        "U04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U04.2-phong-benh-phong-kham.md"
+    },
+    {
+      "id": "U04.3",
+      "group": "U04",
+      "name": "Lịch trực",
+      "roles": [
+        "LD",
+        "DD"
+      ],
+      "source_refs": [
+        "U04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U04.3-lich-truc.md"
+    },
+    {
+      "id": "U04.4",
+      "group": "U04",
+      "name": "Thiết bị y tế và bảo trì",
+      "roles": [
+        "QTV",
+        "DD"
+      ],
+      "source_refs": [
+        "U04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U04.4-thiet-bi-y-te-va-bao-tri.md"
+    },
+    {
+      "id": "U05.1",
+      "group": "U05",
+      "name": "AI phân luồng",
+      "roles": [
+        "TD",
+        "BS"
+      ],
+      "ai": true,
+      "source_refs": [
+        "U05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U05.1-ai-phan-luong.md"
+    },
+    {
+      "id": "U05.2",
+      "group": "U05",
+      "name": "AI cảnh báo sớm",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "ai": true,
+      "source_refs": [
+        "U05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U05.2-ai-canh-bao-som.md"
+    },
+    {
+      "id": "U05.3",
+      "group": "U05",
+      "name": "AI dự báo giường",
+      "roles": [
+        "LD",
+        "DD"
+      ],
+      "ai": true,
+      "source_refs": [
+        "U05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U05.3-ai-du-bao-giuong.md"
+    },
+    {
+      "id": "U05.4",
+      "group": "U05",
+      "name": "AI cảnh báo tương tác thuốc",
+      "roles": [
+        "BS",
+        "DS"
+      ],
+      "ai": true,
+      "source_refs": [
+        "U05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U05.4-ai-canh-bao-tuong-tac-thuoc.md"
+    },
+    {
+      "id": "U06.1",
+      "group": "U06",
+      "name": "Sinh hiệu theo giường",
+      "roles": [
+        "DD",
+        "BS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U06.1-sinh-hieu-theo-giuong.md"
+    },
+    {
+      "id": "U06.2",
+      "group": "U06",
+      "name": "Xu hướng sinh hiệu",
+      "roles": [
+        "DD",
+        "BS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U06.2-xu-huong-sinh-hieu.md"
+    },
+    {
+      "id": "U06.3",
+      "group": "U06",
+      "name": "Vượt ngưỡng/mất tín hiệu",
+      "roles": [
+        "DD",
+        "BS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U06.3-vuot-nguong-mat-tin-hieu.md"
+    },
+    {
+      "id": "U06.4",
+      "group": "U06",
+      "name": "Nhiệt độ kho thuốc",
+      "roles": [
+        "DS"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U06.4-nhiet-do-kho-thuoc.md"
+    },
+    {
+      "id": "U07.1",
+      "group": "U07",
+      "name": "Dashboard",
+      "roles": [
+        "LD",
+        "QTV"
+      ],
+      "source_refs": [
+        "U07",
+        "UI-REF-05"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U07.1-dashboard.md"
+    },
+    {
+      "id": "U07.2",
+      "group": "U07",
+      "name": "Báo cáo theo khoa/thời gian",
+      "roles": [
+        "LD",
+        "QTV"
+      ],
+      "source_refs": [
+        "U07"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U07.2-bao-cao-theo-khoa-thoi-gian.md"
+    },
+    {
+      "id": "U07.3",
+      "group": "U07",
+      "name": "Xuất Excel/PDF",
+      "roles": [
+        "LD",
+        "KT",
+        "QTV"
+      ],
+      "source_refs": [
+        "U07"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U07.3-xuat-excel-pdf.md"
+    },
+    {
+      "id": "U08.1",
+      "group": "U08",
+      "name": "Nhắc lịch/số thứ tự",
+      "roles": [
+        "NB",
+        "TD"
+      ],
+      "source_refs": [
+        "U08"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U08.1-nhac-lich-so-thu-tu.md"
+    },
+    {
+      "id": "U08.2",
+      "group": "U08",
+      "name": "Cảnh báo lâm sàng",
+      "roles": [
+        "BS",
+        "DD"
+      ],
+      "source_refs": [
+        "U08"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U08.2-canh-bao-lam-sang.md"
+    },
+    {
+      "id": "U08.3",
+      "group": "U08",
+      "name": "Cảnh báo vận hành",
+      "roles": [
+        "QTV",
+        "LD"
+      ],
+      "source_refs": [
+        "U08"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U08.3-canh-bao-van-hanh.md"
+    },
+    {
+      "id": "U08.4",
+      "group": "U08",
+      "name": "Trung tâm thông báo",
+      "roles": [
+        "ALL"
+      ],
+      "source_refs": [
+        "U08"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U08.4-trung-tam-thong-bao.md"
+    },
+    {
+      "id": "U09.1",
+      "group": "U09",
+      "name": "Bảng kê/tách phần chi trả",
+      "roles": [
+        "KT"
+      ],
+      "source_refs": [
+        "U09",
+        "UI-REF-04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U09.1-bang-ke-tach-phan-chi-tra.md"
+    },
+    {
+      "id": "U09.2",
+      "group": "U09",
+      "name": "Thu tiền/biên lai",
+      "roles": [
+        "KT"
+      ],
+      "source_refs": [
+        "U09",
+        "UI-REF-04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U09.2-thu-tien-bien-lai.md"
+    },
+    {
+      "id": "U09.3",
+      "group": "U09",
+      "name": "Gửi/nhận phản hồi hồ sơ BHYT",
+      "roles": [
+        "KT"
+      ],
+      "integration": true,
+      "source_refs": [
+        "U09"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U09.3-ho-so-bhyt-gui-nhan.md"
+    },
+    {
+      "id": "U10.1",
+      "group": "U10",
+      "name": "Cấp phát theo đơn",
+      "roles": [
+        "DS"
+      ],
+      "source_refs": [
+        "U10",
+        "UI-REF-04"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U10.1-cap-phat-thuoc-theo-don.md"
+    },
+    {
+      "id": "U10.2",
+      "group": "U10",
+      "name": "Tồn kho/hạn dùng",
+      "roles": [
+        "DS"
+      ],
+      "source_refs": [
+        "U10"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U10.2-ton-kho-han-dung.md"
+    },
+    {
+      "id": "U11.1",
+      "group": "U11",
+      "name": "Người bệnh xem lịch hẹn/kết quả (mobile)",
+      "roles": [
+        "NB"
+      ],
+      "source_refs": [
+        "U11"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/U11.1-nguoi-benh-xem-lich-hen-ket-qua-mobile.md"
+    }
+  ],
+  "hub_features": [
+    {
+      "id": "HUB-DOC",
+      "name": "Quản lý tài liệu: xem/tìm/phân loại/version/so sánh",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-DOC-quan-ly-tai-lieu.md"
+    },
+    {
+      "id": "HUB-REVIEW",
+      "name": "Bình luận/review/phê duyệt tài liệu",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-REVIEW-binh-luan-review-phe-duyet.md"
+    },
+    {
+      "id": "HUB-TASK",
+      "name": "Phân công, trạng thái, phụ thuộc, blocker",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-TASK-phan-cong-trang-thai-phu-thuoc.md"
+    },
+    {
+      "id": "HUB-TRACE",
+      "name": "Truy vết yêu cầu–màn hình–FE/BE–test",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-TRACE-ma-tran-truy-vet.md"
+    },
+    {
+      "id": "HUB-CONTEXT",
+      "name": "Context/checkpoint/handoff/tiếp tục phiên",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-CONTEXT-context-checkpoint-handoff.md"
+    },
+    {
+      "id": "HUB-TEST",
+      "name": "Kế hoạch/test case/kết quả/lỗi/review/nghiệm thu",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-TEST-ke-hoach-test-nghiem-thu.md"
+    },
+    {
+      "id": "HUB-DECISION",
+      "name": "Quyết định, giả định, câu hỏi, kiểm soát thay đổi",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-DECISION-quyet-dinh-kiem-soat-thay-doi.md"
+    },
+    {
+      "id": "HUB-REPORT",
+      "name": "Báo cáo/slide/video/bàn giao + minh chứng",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-REPORT-bao-cao-ban-giao-minh-chung.md"
+    },
+    {
+      "id": "HUB-AUTH",
+      "name": "Đăng nhập Hub + phân quyền theo trách nhiệm dự án",
+      "source_refs": [
+        "UI-REF-06"
+      ],
+      "readiness": {
+        "spec": "DRAFT",
+        "impl": "NONE",
+        "acceptance": "NONE"
+      },
+      "spec_doc": "content/02-yeu-cau/dac-ta/HUB-AUTH-dang-nhap-quyen-du-an.md"
+    }
+  ],
+  "counts": {
+    "hospital": 67,
+    "hub": 9,
+    "by_group_check": "A=25, U01-U08=36, U09-U11=6"
+  }
+}

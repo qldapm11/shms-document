@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-04T04:51:00Z",
+  "note": "Rủi ro dự án. Mỗi rủi ro: ảnh hưởng, khả năng, ứng phó, người theo dõi.",
+  "risks": [
+    {
+      "id": "R001",
+      "title": "Phạm vi 67 tính năng vượt cửa sổ lịch nhóm 02–15/11",
+      "impact": "HIGH",
+      "likelihood": "HIGH",
+      "description": "Làm đầy đủ 67 tính năng + HUB với nghiệp vụ/test đầy đủ không khả thi trong ~2 tuần của 8 người.",
+      "mitigation": "Phân kỳ: đặc tả toàn bộ, triển khai theo lô ưu tiên (nền tảng → luồng lõi → nâng cao). Báo rõ phần khả thi/nguy cơ trễ. Không cắt scope khỏi kế hoạch.",
+      "owner": "Nguyệt (PM)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R002",
+      "title": "Context AI tràn (CONTEXT_LENGTH_EXCEEDS)",
+      "impact": "MEDIUM",
+      "likelihood": "MEDIUM",
+      "description": "Đặc tả 67 tính năng + đọc 12 ảnh 2MB trong một phiên gây tràn context.",
+      "mitigation": "Ghi ra file ngay, checkpoint sau mỗi mốc; không đọc nhiều ảnh cùng lúc; đặc tả theo lô nhỏ; CURRENT_CONTEXT.md sinh lại từ state.",
+      "owner": "Claude CLI agent",
+      "status": "MITIGATING"
+    },
+    {
+      "id": "R003",
+      "title": "Tích hợp thật chưa có đối tác",
+      "impact": "MEDIUM",
+      "likelihood": "HIGH",
+      "description": "IoT, BHYT, LIS/RIS, ký số, 9router chưa có kết nối thật đã xác minh.",
+      "mitigation": "Dùng adapter mô phỏng có contract + fixture; đánh dấu rõ mức mô phỏng vs thật; ghi tiêu chí nghiệm thu thật để làm sau.",
+      "owner": "Dương (SA)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R004",
+      "title": "Suy diễn luật y tế/giá/BHYT từ mockup",
+      "impact": "HIGH",
+      "likelihood": "MEDIUM",
+      "description": "Ảnh mockup có số liệu minh họa; coi đó là luật nghiệp vụ chính thức gây sai nghiệp vụ.",
+      "mitigation": "Chỉ lấy bố cục/hành trình từ ảnh; luật nghiệp vụ, ngưỡng, giá đánh dấu là giả định cần xác nhận.",
+      "owner": "Minh (BA)",
+      "status": "OPEN"
+    },
+    {
+      "id": "R005",
+      "title": "Hai nguồn trạng thái song song",
+      "impact": "MEDIUM",
+      "likelihood": "LOW",
+      "description": "Khi Backend Hub có DB, nếu cả file state và DB cùng nhận cập nhật sẽ lệch nguồn.",
+      "mitigation": "Một nguồn chuẩn tại một thời điểm; sau migration, file state thành snapshot chỉ đọc.",
+      "owner": "Tuấn (BE)",
+      "status": "OPEN"
+    }
+  ]
+}

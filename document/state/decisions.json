@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-04T04:48:00Z",
+  "note": "Quyết định đã xác nhận. Mỗi quyết định ghi người có thẩm quyền, lý do, thời điểm, tác động.",
+  "decisions": [
+    {
+      "id": "D001",
+      "title": "Tên và phạm vi dự án",
+      "decision": "SHMS — Smart Hospital Management System. Làm toàn bộ 67 tính năng, không giới hạn Must/Should/Could.",
+      "authority": "Người dùng (chủ dự án)",
+      "source": "SHMS_AI_BOOTSTRAP_PROMPT.md §2",
+      "decided_at": "2026-11-04",
+      "impact": "Khối lượng lớn, cần phân kỳ triển khai nhưng giữ toàn bộ scope."
+    },
+    {
+      "id": "D002",
+      "title": "Ba project trong một repository",
+      "decision": "Giữ cấu trúc thực tế đang có: shms-frontend (React), shms-backend (Node.js), shms-document (React, SHMS Project Hub). TypeScript cho cả ba.",
+      "authority": "Người dùng xác nhận trong phiên 2026-11-04",
+      "source": "Bootstrap §2 + xác nhận AskUserQuestion phiên bootstrap",
+      "decided_at": "2026-11-04",
+      "impact": "State đặt tại shms-document/document/state/. Không tạo thư mục frontend/backend/document trùng lặp."
+    },
+    {
+      "id": "D003",
+      "title": "Phiên bản và môi trường khởi tạo",
+      "decision": "Phiên bản 0.1.0. Môi trường local, test, demo. Cổng local dự kiến FE 3000, API 3001, Hub 3002.",
+      "authority": "Định hướng khởi tạo (chưa phải bằng chứng đã cài/chạy)",
+      "source": "Bootstrap §2",
+      "decided_at": "2026-11-04",
+      "impact": "Xác minh tránh xung đột cổng khi triển khai thật. Workspace registry quản lý port thật khi publish."
+    },
+    {
+      "id": "D004",
+      "title": "AI qua 9router",
+      "decision": "Mọi tính năng AI trong phần mềm dùng API qua 9router.",
+      "authority": "Người dùng",
+      "source": "Bootstrap §2",
+      "decided_at": "2026-11-04",
+      "impact": "Cần khảo sát tài liệu 9router thật ở bước tích hợp. Không bịa endpoint/khả năng."
+    },
+    {
+      "id": "D005",
+      "title": "Phân quyền tách bạch bệnh viện vs Project Hub",
+      "decision": "Không trộn quyền PM/BA/Dev/QA (Project Hub) với quyền bác sĩ/điều dưỡng/kế toán (bệnh viện). Hai hệ RBAC tách module.",
+      "authority": "Bootstrap §6 (Backend)",
+      "source": "Bootstrap §6",
+      "decided_at": "2026-11-04",
+      "impact": "Thiết kế hai không gian vai trò riêng; người dùng có thể có danh tính ở cả hai nhưng quyền không lẫn."
+    },
+    {
+      "id": "D006",
+      "title": "Phạm vi lượt bootstrap này",
+      "decision": "Làm A→E (state, danh mục/truy vết, đặc tả, thiết kế kỹ thuật, backlog). Chưa lập trình ứng dụng.",
+      "authority": "Người dùng xác nhận AskUserQuestion phiên 2026-11-04",
+      "source": "Phiên bootstrap",
+      "decided_at": "2026-11-04",
+      "impact": "Đặc tả chi tiết 67 tính năng phân kỳ nhiều phiên; lô đầu đặc tả nền, còn lại catalog-level DRAFT với readiness chính xác."
+    },
+    {
+      "id": "D007",
+      "title": "Bảng 40 công việc là nguồn phân công chuẩn",
+      "decision": "Dùng QLDAPM_Nhóm_11_phân_chia_công_việc.xlsx (40 công việc) làm nguồn phân công nhóm. Bản Nhom_X_Phan_cong.xlsx (I–XIII) là mẫu cũ, chỉ tham khảo.",
+      "authority": "Đối chiếu bootstrap §3 (ưu tiên bản hiện tại)",
+      "source": "requirement/template/",
+      "decided_at": "2026-11-04",
+      "impact": "Task cấp nhóm (G01–G40) liên kết tới task kỹ thuật chi tiết trong tasks.json."
+    }
+  ],
+  "decisions_appended": [
+    {
+      "id": "D008",
+      "title": "Chốt stack chạy được (điều chỉnh từ đề xuất)",
+      "decision": "Backend: Node + TypeScript + Express + Prisma + SQLite. Frontend: Vite + React + TypeScript + Ant Design + React Router + TanStack Query. Dùng SQLite (DB file) thay Postgres; dùng Express thay NestJS.",
+      "authority": "Agent tự quyết theo quyền chủ động người dùng giao ('làm tất cả, không đợi')",
+      "source": "Khảo sát môi trường 2026-11-04: Node 24, npm 11, mạng OK, KHÔNG có Postgres server",
+      "decided_at": "2026-11-04",
+      "impact": "Demo chạy được ngay, không phụ thuộc dịch vụ ngoài. Prisma hỗ trợ đổi provider sang Postgres sau nếu cần. Express nhẹ, scaffold nhanh; RBAC/audit làm bằng middleware. Giải quyết Q001.",
+      "deviation_note": "Lệch khỏi đề xuất NestJS/PostgreSQL trong 04-kien-truc (mức [ĐỀ XUẤT], chưa chốt). Lý do: không có DB server; demo học tập cần chạy ở mọi máy. Đã ghi rõ thay vì âm thầm đổi."
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "AS001",
+      "assumption": "Dùng cấu trúc shms-frontend/backend/document đang tồn tại thay vì frontend/backend/document như bootstrap đề xuất.",
+      "basis": "3 repo rỗng đã tồn tại sẵn; người dùng xác nhận giữ.",
+      "status": "confirmed",
+      "impact": "Đường dẫn state/content/agent nằm dưới shms-document/document/."
+    },
+    {
+      "id": "AS002",
+      "assumption": "Framework cụ thể (React: Vite/Next; Node: NestJS/Express; DB: PostgreSQL) chưa chốt — sẽ đề xuất có căn cứ trong Loại D, coi là proposal cho tới khi người dùng xác nhận.",
+      "basis": "Bootstrap §2 nói các lựa chọn này chưa được chọn.",
+      "status": "proposed",
+      "impact": "Thiết kế kỹ thuật ghi rõ đâu là đề xuất, đâu đã chốt."
+    },
+    {
+      "id": "AS003",
+      "assumption": "8 thành viên và vai trò theo bootstrap §3 là bản hiện hành (Nguyệt PM, Minh PO/BA, Dương SA, Huy DevOps, Phong UI/UX+trưởng nhóm, Sơn FE, Tuấn BE+hỗ trợ PM, Phương Anh QA).",
+      "basis": "Bootstrap §3. Mẫu báo cáo docx dùng tên ẩn danh A–F nên không dùng làm nguồn tên.",
+      "status": "confirmed",
+      "impact": "Owner/reviewer trong tasks dùng danh sách 8 người này."
+    }
+  ]
+}

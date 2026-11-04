@@ -1,0 +1,79 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-04T04:47:00Z",
+  "generated_by": "claude-cli-bootstrap",
+  "note": "Nguồn trạng thái chuẩn giai đoạn bootstrap. Khi Backend Project Hub sẵn sàng sẽ migration sang API; file xuất ra sau migration là snapshot chỉ đọc.",
+  "project": {
+    "code": "SHMS",
+    "name": "Smart Hospital Management System",
+    "name_vi": "Hệ thống Quản lý Bệnh viện Thông minh",
+    "version": "0.1.0",
+    "repository": "shms",
+    "phase": "BOOTSTRAP_REQUIREMENTS_DESIGN",
+    "phase_note": "Lượt khởi động: xây dựng bối cảnh, yêu cầu, thiết kế, kế hoạch. Chưa lập trình ứng dụng.",
+    "language_ui": "vi",
+    "ui_style": "Thống nhất, ưu tiên desktop, thích ứng kích thước màn hình; tông xanh dương/xanh lam; cảm giác tin cậy, an toàn, bình yên, chuyên nghiệp"
+  },
+  "projects": [
+    {
+      "id": "shms-frontend",
+      "display_name": "SHMS Frontend",
+      "dir": "shms-frontend",
+      "stack": "React + TypeScript",
+      "responsibility": "Giao diện bệnh viện cho mọi vai trò + người bệnh theo quyền thiết kế",
+      "planned_port_local": 3000,
+      "status": "empty_repo"
+    },
+    {
+      "id": "shms-backend",
+      "display_name": "SHMS Backend",
+      "dir": "shms-backend",
+      "stack": "Node.js + TypeScript",
+      "responsibility": "API nghiệp vụ bệnh viện + Project Hub; auth/RBAC; lưu trữ; AI qua 9router; adapter tích hợp; audit; migration/seed; test",
+      "planned_port_local": 3001,
+      "status": "empty_repo"
+    },
+    {
+      "id": "shms-document",
+      "display_name": "SHMS Project Hub",
+      "dir": "shms-document",
+      "stack": "React + TypeScript",
+      "responsibility": "Cổng quản lý thông tin dự án, tài liệu, task, tiến độ, context, test, review, báo cáo, bàn giao",
+      "planned_port_local": 3002,
+      "status": "empty_repo",
+      "layout": {
+        "app": "document/app/ — ứng dụng React Project Hub",
+        "content": "document/content/ — tài liệu nguồn có version",
+        "agent": "document/agent/ — quy tắc, prompt, quy trình, chỉ mục context",
+        "state": "document/state/ — nguồn trạng thái bootstrap"
+      }
+    }
+  ],
+  "environments": ["local", "test", "demo"],
+  "confirmed_decisions_ref": "document/state/decisions.json",
+  "scope": {
+    "hospital_features_total": 67,
+    "breakdown": { "A_admin": 25, "U01_U08": 36, "U09_U11": 6 },
+    "hub_features": "namespace HUB-*, ngoài con số 67",
+    "completeness": "Đủ nghiệp vụ, thao tác, dữ liệu, ngoại lệ, phân quyền, kiểm thử mỗi tính năng",
+    "must_should_could": "KHÔNG áp dụng giới hạn Must/Should/Could cũ; làm toàn bộ 67"
+  },
+  "team_schedule": {
+    "window": "2026-11-02 → 2026-11-15",
+    "update_cadence": "2 ngày/lần",
+    "note": "Phạm vi phủ toàn bộ tính năng vượt quá cửa sổ lịch nhóm; cần ước lượng lại và báo phần có nguy cơ trễ. Không tự cắt scope."
+  },
+  "simulated_hospital": {
+    "note": "SỐ LIỆU GIẢ LẬP — không phải thực tế của nhóm",
+    "beds": 500,
+    "budget_vnd": 30000000000,
+    "duration": "12 tháng năm 2027"
+  },
+  "ai_integration": {
+    "provider": "9router",
+    "note": "Dùng API qua 9router. Chưa chọn endpoint/khả năng cụ thể; không bịa. Xác minh tài liệu thật ở bước tích hợp. Không đưa khóa thật vào repo/chat."
+  },
+  "external_integrations": {
+    "note": "Chưa có đối tác (IoT, BHYT, LIS/RIS, SMS, ký số). Phân biệt nghiệp vụ nội bộ / adapter mô phỏng / kết nối thật đã xác minh. Không tuyên bố đã tích hợp khi chưa có bằng chứng."
+  }
+}

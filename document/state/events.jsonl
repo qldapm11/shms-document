@@ -1,0 +1,16 @@
+{"ts":"2026-11-04T04:47:00Z","actor":"claude-cli","type":"SESSION_START","detail":"Bắt đầu lượt bootstrap SHMS; đọc workspace load, bootstrap prompt, tài liệu nguồn"}
+{"ts":"2026-11-04T04:48:00Z","actor":"claude-cli","type":"STATE_INIT","detail":"Tạo project.json, decisions.json"}
+{"ts":"2026-11-04T04:49:00Z","actor":"claude-cli","type":"STATE_INIT","detail":"Tạo features.json: 67 tính năng bệnh viện + 9 HUB"}
+{"ts":"2026-11-04T04:49:30Z","actor":"claude-cli","type":"CHECK","detail":"feature-count PASS: hospital=67 (A=25,U01-U08=36,U09-U11=6), hub=9"}
+{"ts":"2026-11-04T04:50:00Z","actor":"claude-cli","type":"STATE_INIT","detail":"Tạo open-questions.json (Q001-Q004), risks.json (R001-R005)"}
+{"ts":"2026-11-04T04:52:00Z","actor":"claude-cli","type":"STATE_INIT","detail":"Tạo tasks.json: 40 group task (G01-G40) + 5 task kỹ thuật (T-*)"}
+{"ts":"2026-11-04T04:56:00Z","actor":"claude-cli","type":"CONTENT","detail":"Loại B: danh mục nguồn, chỉ mục, danh mục 67+9, mã màn hình+đối chiếu ảnh, ma trận truy vết, giả định/câu hỏi/mâu thuẫn"}
+{"ts":"2026-11-04T04:58:00Z","actor":"claude-cli","type":"CONTENT","detail":"Loại D: kiến trúc tổng thể, mô hình dữ liệu ERD, hợp đồng API (đánh dấu ĐỀ XUẤT)"}
+{"ts":"2026-11-04T05:00:00Z","actor":"claude-cli","type":"CONTENT","detail":"Loại E: backlog + roadmap phân kỳ P0-P5+Hub, ước lượng ~115-125 đ-ng, cảnh báo lịch R001"}
+{"ts":"2026-11-04T05:01:00Z","actor":"claude-cli","type":"CONTENT","detail":"Loại C lô nền: đặc tả COMPLETE A01.3, U01.1, U02.6 theo mẫu §8"}
+{"ts":"2026-11-04T06:18:00Z","actor":"claude-cli+8subagents","type":"CONTENT","detail":"Loại C hoàn tất: 76 đặc tả (67 bệnh viện + 9 HUB) theo mẫu §8 qua 8 agent song song"}
+{"ts":"2026-11-04T06:18:30Z","actor":"claude-cli","type":"CHECK","detail":"spec-coverage PASS: 76/76 có spec_doc; readiness.spec = 3 COMPLETE + 73 DRAFT; không file stub <1500B; đủ 67+9"}
+{"ts":"2026-11-04T06:34:00Z","actor":"claude-cli","type":"BUILD","detail":"Backend dựng xong: Express+Prisma+SQLite, 8 router (catalog/admin/clinical/inpatient/billing/ai-iot/report/hub), 160+ endpoint. typecheck PASS."}
+{"ts":"2026-11-04T06:34:30Z","actor":"claude-cli","type":"CHECK","detail":"API smoke PASS: login+JWT, RBAC (bacsi→/admin 403), luồng khám→kê đơn→tương tác mock→ký; ký lại 409, sửa sau ký 409. DB seed 8 tài khoản demo. Port 3001 bận(Uptime Kuma)→dùng 3010/3011."}
+{"ts":"2026-11-04T08:10:00Z","actor":"claude-cli","type":"DEPLOY","detail":"Deploy SHMS lên gateway Nginx /shms/: đăng ký services.json+system.json (port 3010, stripPrefix=false, navigation portal), BASE_PATH=/shms cho BE phục vụ API+FE build, FE base=/shms/. workspace validate PASS, render+nginx test/reload PASS."}
+{"ts":"2026-11-04T08:10:30Z","actor":"claude-cli","type":"CHECK","detail":"Qua gateway 6666: redirect /shms->/shms/, FE index/asset/deep-link 200, health/login 200, portal homepage có link SHMS. E2E 15/15 PASS (6 vai trò, RBAC 403). Audit sạch phía SHMS; đã dọn server static 3011 thừa."}

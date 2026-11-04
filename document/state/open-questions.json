@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-11-04T04:50:00Z",
+  "note": "Chỉ câu hỏi thực sự còn mở, cần người dùng/stakeholder trả lời. Không lặp lại câu đã được chốt trong decisions.json.",
+  "questions": [
+    {
+      "id": "Q001",
+      "topic": "Framework & stack",
+      "question": "Chốt stack cụ thể: FE Vite+React hay Next.js? BE NestJS hay Express? DB PostgreSQL? ORM Prisma?",
+      "options": ["Vite+React / NestJS / PostgreSQL / Prisma (đề xuất)", "Next.js full-stack", "Khác"],
+      "recommendation": "Vite+React (SPA, ưu tiên desktop) + NestJS (module/RBAC/DI mạnh) + PostgreSQL + Prisma",
+      "blocks": ["Loại D hoàn tất", "mọi task code FE/BE"],
+      "owner_to_answer": "Dương (SA) + người dùng",
+      "status": "OPEN"
+    },
+    {
+      "id": "Q002",
+      "topic": "9router",
+      "question": "Endpoint thật, model, cách xác thực và giới hạn sử dụng của 9router? Có tài liệu chính thức để đọc không?",
+      "options": [],
+      "recommendation": "Thiết kế lớp adapter AI trừu tượng; chưa gọi thật cho tới khi có tài liệu + khóa test",
+      "blocks": ["U05.1-U05.4 impl", "A05.4 impl"],
+      "owner_to_answer": "Người dùng",
+      "status": "OPEN"
+    },
+    {
+      "id": "Q003",
+      "topic": "Nơi triển khai demo",
+      "question": "Demo chạy ở đâu? Qua Nginx gateway :6666 của workspace (đăng ký services.json) hay chỉ local?",
+      "options": ["Đăng ký workspace registry + Nginx prefix riêng", "Chỉ chạy local khi demo"],
+      "recommendation": "Khi tới bước chạy thật: đăng ký services.json với prefix riêng (vd /shms/, /shms-api/, /shms-hub/), bind 127.0.0.1",
+      "blocks": ["publish demo"],
+      "owner_to_answer": "Huy (DevOps) + người dùng",
+      "status": "OPEN"
+    },
+    {
+      "id": "Q004",
+      "topic": "Phạm vi nghiệm thu mô phỏng",
+      "question": "Với IoT/BHYT/LIS-RIS/ký số không có đối tác thật: mức nghiệm thu mô phỏng nào được chấp nhận cho bài demo?",
+      "options": ["Adapter mô phỏng có contract + fixture", "Chỉ UI + dữ liệu mẫu"],
+      "recommendation": "Adapter mô phỏng có contract rõ + fixture; ghi riêng tiêu chí nghiệm thu thật để làm sau",
+      "blocks": ["acceptance của feature integration=true"],
+      "owner_to_answer": "Minh (BA) + Phương Anh (QA)",
+      "status": "OPEN"
+    }
+  ]
+}
